@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-import { useRef } from 'react';
 import { useEffect } from 'react'
 import { Table, Alert, Button } from 'react-bootstrap'
 import {AiTwotoneEdit, AiFillDelete} from 'react-icons/ai';
@@ -16,7 +15,7 @@ import "datatables.net-buttons/js/buttons.colVis.js";
 import "datatables.net-buttons/js/buttons.flash.js";
 import "datatables.net-buttons/js/buttons.html5.js";
 import "datatables.net-buttons/js/buttons.print.js";
-import $ from "jquery";
+// import $ from "jquery";
 
 export default function Home() {
     const navigate = useNavigate();
@@ -38,7 +37,7 @@ export default function Home() {
     }
     
     const getSearch = async (search) =>{
-        if(search.trim()=="" || search=="")
+        if(search.trim()==="" || search==="")
             getProduct();
         else
         //     await fetch("https://jade-delightful-kangaroo.cyclic.app/api/v1/product/search/"+search)
@@ -68,9 +67,9 @@ export default function Home() {
             setShowMessage(true);
             setLoading(false);
             getProduct();
-            if(output.result == 1)
+            if(output.result === 1)
                 setMessage("Data Deleted");
-            else if(output.result == 0)
+            else if(output.result === 0)
                 setMessage("Data Deleted Failed");
             else
                 setMessage("Something Wrong")
@@ -135,7 +134,7 @@ export default function Home() {
         //             {
         //               targets: 0,
         //               render: function (data, type, row, meta) {
-        //                 return type === "export" ? meta.row + 1 : data;
+        //                 return type ==== "export" ? meta.row + 1 : data;
         //               },
         //             },
         //           ],
@@ -147,7 +146,7 @@ export default function Home() {
   return (
         <div className='col-md-10'>
             <h3 className='text-center my-3'>Product Details</h3>
-            {showMessage &&  <Alert variant={(message=="Data Updated") ? "primary" : "danger"} onClose={() => setShowMessage(false)} dismissible>{message}</Alert>}
+            {showMessage &&  <Alert variant={(message==="Data Updated") ? "primary" : "danger"} onClose={() => setShowMessage(false)} dismissible>{message}</Alert>}
             <div className='d-flex justify-content-between align-items-center'>
                 <Button className='mb-3' variant="primary" onClick={()=>{
                     navigate("/create")
@@ -190,7 +189,7 @@ export default function Home() {
                     }
                 </tbody>
             </Table>
-            {!loading && getList=="" && <h3 className='text-center mt-3'>Empty List 0️⃣</h3>}
+            {!loading && getList==="" && <h3 className='text-center mt-3'>Empty List 0️⃣</h3>}
             {loading && <h4 className='text-center mt-2'>Data Loading...</h4>}
             
         </div>

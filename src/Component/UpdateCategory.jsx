@@ -33,7 +33,7 @@ export default function UpdateCategory() {
             nameRef.current.value = "";
             if(output.data.modifiedCount > 0)
                 setMessage("Data Updated");
-            else if(output.data.modifiedCount == 0)
+            else if(output.data.modifiedCount === 0)
                 setMessage("Data Not Changed");
             else
                 setMessage("Something Wrong")
@@ -43,7 +43,7 @@ export default function UpdateCategory() {
     <div className='col-md-6'>
         
         <h3 className='text-center my-3'>Category Update</h3>
-        {showMessage &&  <Alert variant={(message=="Data Updated") ? "primary" : "danger"} onClose={() => setShowMessage(false)} dismissible>{message} <Alert.Link href="/category-list">Check View</Alert.Link></Alert>}
+        {showMessage &&  <Alert variant={(message==="Data Updated") ? "primary" : "danger"} onClose={() => setShowMessage(false)} dismissible>{message} <Alert.Link href="/category-list">Check View</Alert.Link></Alert>}
         {loading && <h4>Data Loading...</h4>}
         <Form method='POST' onSubmit={(e)=>{
                     e.preventDefault();

@@ -38,9 +38,9 @@ export default function Update() {
             setShowMessage(true);
             setLoading(false);
             console.log(output.message)
-            if(output.data.modifiedCount == 1)
+            if(output.data.modifiedCount === 1)
                 setMessage("Data Updated");
-            else if(output.data.modifiedCount == 0)
+            else if(output.data.modifiedCount === 0)
                 setMessage("Data Not Changed");
             else
                 setMessage("Something Wrong")
@@ -64,7 +64,7 @@ export default function Update() {
   return (
     <div className='col-md-6'>
         <h3 className='text-center my-3'>Product Update</h3>
-        {showMessage &&  <Alert variant={(message=="Data Updated") ? "primary" : "danger"} onClose={() => setShowMessage(false)} dismissible>{message}  <Alert.Link href="/">Check View</Alert.Link></Alert>}
+        {showMessage &&  <Alert variant={(message==="Data Updated") ? "primary" : "danger"} onClose={() => setShowMessage(false)} dismissible>{message}  <Alert.Link href="/">Check View</Alert.Link></Alert>}
         {loading && <h4>Data Loading...</h4>}
         {!loading && 
             <Form method='PUT' onSubmit={(e)=>{

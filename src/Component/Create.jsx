@@ -49,7 +49,7 @@ export default function Create() {
         .then((output)=>{
             setShowMessage(true);
             setLoading(false);
-            if(output.result == 1)
+            if(output.result === 1)
                 setMessage("Data Added");
             else
                 setMessage("Data Added Failed");
@@ -61,7 +61,7 @@ export default function Create() {
   return (
     <div className='col-md-6'>
         <h3 className='text-center my-3'>Product Add</h3>
-        {showMessage &&  <Alert variant={(message=="Data Added") ? "primary" : "danger"} onClose={() => setShowMessage(false)} dismissible>{message}  <Alert.Link href="/">Check View</Alert.Link></Alert>}
+        {showMessage &&  <Alert variant={(message==="Data Added") ? "primary" : "danger"} onClose={() => setShowMessage(false)} dismissible>{message}  <Alert.Link href="/">Check View</Alert.Link></Alert>}
         {loading && <h4>Data Loading...</h4>}
         {!loading && 
             <Form method='POST' onSubmit={(e)=>{
