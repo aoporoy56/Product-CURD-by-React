@@ -1,7 +1,9 @@
 import React from 'react'
 import {Navbar, Nav, Container, NavDropdown} from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 
 export default function Navbars() {
+  const navigate = useNavigate();
   return (
     <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
       <Container className=''>
@@ -9,20 +11,20 @@ export default function Navbars() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" className='flex-grow-0'>
           <Nav>
-            <Nav.Link href='/'>
+            <Nav.Link onClick={()=> navigate("/")}>
               View
             </Nav.Link>
-            <Nav.Link href="/create">
+            <Nav.Link onClick={()=> navigate("/create")}>
                 Create
             </Nav.Link>
             {/* <Nav.Link href='/update'>
               Update
             </Nav.Link> */}
             <NavDropdown title="Category" id="navbarScrollingDropdown">
-              <NavDropdown.Item  href='/category-list'>
+              <NavDropdown.Item onClick={()=> navigate("/category-list")} >
                 View
               </NavDropdown.Item>
-              <NavDropdown.Item href='/create-category'>
+              <NavDropdown.Item onClick={()=> navigate("/create-category")}>
                 Create
               </NavDropdown.Item>
             </NavDropdown>
